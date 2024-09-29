@@ -1,0 +1,39 @@
+spring:
+  application:
+    name: registry
+
+server:
+  port: 8761
+
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: false
+  instance:
+    prefer-ip-address: true
+    
+logging:
+  level:
+    com.netflix.eureka: OFF
+    com.netflix.discovery: OFF
+
+management:
+  server:
+    port: 9061
+  health:
+    defaults:
+      enabled: false
+    livenessstate:
+      enabled: true
+    readinessstate:
+      enabled: true
+  endpoints:
+    web:
+      discovery:
+        enabled: true
+      exposure:
+        include: "info,health"
+  endpoint:
+    health:
+      show-details: always
